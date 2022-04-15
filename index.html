@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PESO PLANETARIO</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+            text-align:center;
+        }
+        .cubo{
+   
+            border:solid 4px white;
+            display:inline-block;
+            margin-top: 50px;
+            margin-left:auto;
+            margin-right:auto;
+            text-align:center;
+            position: relative;
+            background-color: rgb(48, 47, 42);
+        }
+    </style>
+</head>
+    <body>
+        <div class="cubo">
+            <h1>Tu peso en otro palneta</h1>
+            <p>En la tierra pesas de una manera super distinta a tu peso en marte o incluso jupyter</p>
+            <input type="text" id="planet" list="planetas">
+            <button type="button" id="btn" onclick="textClick()">CALCULAR MI PESO</button>
+            <p id="pesoActual"></p>
+        </div>
+        <script>
+
+            function crearLista(){
+                var values = ['MERCURIO', 'VENUS', 'TIERRA', 'MARTE', 'JUPITER','SATURNO', 'URANO', 'NEPTUNO'];
+                
+                var lista = document.createElement('datalist');
+                lista.id = "planetas";
+                
+                values.forEach(value =>{
+                    var opcion = document.createElement('option');
+                    opcion.innerHTML = value;
+                    opcion.value = value;
+                    lista.appendChild(opcion);
+                })
+                document.body.appendChild(lista);
+            }
+
+            crearLista();            
+
+            var nombre=prompt("Escribe tu nombre");
+            var peso=prompt("Escribe tu peso en (Kg)");
+            var mercurio=3.7,venus=8.87,tierra=9.8,marte=3.71,jupyter=24.79,saturno=10.44,urano=8.87,neptuno=11.15;
+            var pesoFinal;
+            
+            function textClick(){
+                planeta=document.getElementById("planet").value;
+                try {
+                        if(planeta=="MERCURIO"){
+                            pesoFinal=peso*mercurio/tierra;
+                        }else if(planeta=="VENUS"){
+                            pesoFinal=peso*venus/tierra;
+                        }else if(planeta=="TIERRA"){
+                            pesoFinal=peso*tierra/tierra;
+                        }else if(planeta=="MARTE"){
+                            pesoFinal=peso*marte/tierra;
+                        }else if(planeta=="JUPITER"){
+                            pesoFinal=peso*jupyter/tierra;
+                        }else if(planeta=="SATURNO"){
+                            pesoFinal=peso*saturno/tierra;
+                        }else if(planeta=="URANO"){
+                            pesoFinal=peso*urano/tierra;
+                        }else if(planeta=="NEPTUNO"){
+                            pesoFinal=peso*neptuno/tierra;
+                        }else{
+                            alert(planeta);
+                        }
+                    } catch (error) {
+                        alert("ERROR: Recargue la pagina e inserte valores correctos !")
+                    }
+                try{
+                    document.getElementById("pesoActual").innerHTML=nombre+", TU PESO EN "+planeta+" ES DE : "+ parseInt(pesoFinal)+" Kg";            
+                    } catch (error) {
+                        alert("ERROR: Recargue la pagina e inserte valores correctos !")
+                    }
+            }
+
+        </script>
+
+    </body>
+</html>
