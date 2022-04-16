@@ -10,6 +10,8 @@
             background-color: black;
             color: white;
             text-align:center;
+            display:flex;
+            flex-direction: column;
         }
         .cubo{
    
@@ -22,12 +24,30 @@
             position: relative;
             background-color: rgb(48, 47, 42);
         }
+        .drawlable{
+   
+            border:solid 4px white;
+            display:inline-block;
+            margin-top: 50px;
+            margin-left:auto;
+            margin-right:auto;
+            text-align:center;
+            position: relative;
+            background-color: rgb(0, 0, 0);
+            }
     </style>
 </head>
     <body>
+        <div>
+
+        </div>
+        <div class="drawlable">
+            <canvas width="300" height="300" id="dibujito"></canvas>
+        </div>
+
         <div class="cubo">
             <h1>TU PESO EN OTRO PLANETA</h1>
-    <p>En la tierra tienes un peso muy distinto al peso en otros <br> </br> planetas de tu Sistema Solar</p>
+            <p>En la tierra tienes un peso muy distinto al peso en otros <br> </br> planetas de tu Sistema Solar</p>
             <input type="text" id="planet" list="planetas">
             <button type="button" id="btn" onclick="textClick()">CALCULAR MI PESO</button>
             <p id="pesoActual"></p>
@@ -89,6 +109,7 @@
             }
 
         </script>
+        <script src="dibujo.js"></script>
 
     </body>
 </html>
